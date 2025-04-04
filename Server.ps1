@@ -70,6 +70,17 @@ $firewallParams = @{
 New-NetFirewallRule @firewallParams
 
 
+#Disable Windows Firewall
+# Turn off the firewall for the Private network profile
+Set-NetFirewallProfile -Profile Private -Enabled False
+
+# Turn off the firewall for the Public network profile
+Set-NetFirewallProfile -Profile Public -Enabled False
+
+# Turn off the firewall for the Domain network profile
+Set-NetFirewallProfile -Profile Domain -Enabled False
+
+
 #Install-WindowsFeature 
 Install-WindowsFeature AD-Domain-Services –IncludeManagementTools -Verbose
 
